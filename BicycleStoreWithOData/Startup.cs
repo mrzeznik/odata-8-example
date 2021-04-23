@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.OData;
 using Microsoft.OData;
 
+using BicycleStore.Repositories;
+
 namespace BicycleStore
 {
     public class Startup
@@ -13,12 +15,13 @@ namespace BicycleStore
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // register OData service with models and setup available features
+            // register OData service with models and setup available query features
             services.AddOData(opt =>
             {
                 opt.AddModel("odata", EdmModelBuilder.GetEdmModel());
                 opt.Filter().Select().OrderBy().SetMaxTop(50).Count();
             });
+            services.AddTransient<IBicycleRepository, BicycleRepository>();
 
             services.AddSwaggerGen();
         }

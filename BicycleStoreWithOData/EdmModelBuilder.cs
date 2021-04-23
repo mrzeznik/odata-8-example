@@ -1,7 +1,7 @@
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 
-using BicycleStore.Features.Bicycles.Models;
+using BicycleStore.Repositories.Models;
 
 namespace BicycleStore
 {
