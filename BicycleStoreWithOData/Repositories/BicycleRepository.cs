@@ -12,11 +12,11 @@ namespace BicycleStore.Repositories
         Bicycle GetBicycle(int key);
     }
 
-    public class BicycleRepository : IBicycleRepository
+    public class BicycleFakeRepository : IBicycleRepository
     {
         private static IEnumerable<Bicycle> _bicycles;
 
-        public BicycleRepository()
+        public BicycleFakeRepository()
         {
             _bicycles ??= GenerateData();
         }

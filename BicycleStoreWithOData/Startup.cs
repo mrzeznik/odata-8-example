@@ -21,7 +21,7 @@ namespace BicycleStore
                 opt.AddModel("odata", EdmModelBuilder.GetEdmModel());
                 opt.Filter().Select().OrderBy().SetMaxTop(50).Count();
             });
-            services.AddTransient<IBicycleRepository, BicycleRepository>();
+            services.AddTransient<IBicycleRepository, BicycleFakeRepository>();
 
             services.AddSwaggerGen();
         }

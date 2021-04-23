@@ -26,9 +26,17 @@ namespace BicycleStore.Features.Bicycles
         }
 
         /// <summary>Query for single bicycle, eg. /odata/Bicycles(5)</summary>
+        [EnableQuery]
         public ActionResult<Bicycle> Get(int key)
         {
-            return Ok(_bicycleRepository.GetBicycle(key));
+            var bicycle = _bicycleRepository.GetBicycle(key);
+
+            if (bicycle == null)
+            {
+                return NotFound($"Bicycle with key = {key} not found.");
+            }
+
+            return Ok(bicycle);
         }
     }
 }
