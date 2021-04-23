@@ -1,6 +1,6 @@
 using System;
 
-namespace BicycleStore.Features.Bicycles
+namespace BicycleStore.Features.Bicycles.Models
 {
     public class Bicycle
     {

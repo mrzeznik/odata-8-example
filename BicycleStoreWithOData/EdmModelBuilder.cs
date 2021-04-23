@@ -1,7 +1,7 @@
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
 
-using BicycleStore.Features.Bicycles;
+using BicycleStore.Features.Bicycles.Models;
 
 namespace BicycleStore
 {
@@ -11,6 +11,7 @@ namespace BicycleStore
         {
             var builder = new ODataConventionModelBuilder();
             builder.EntitySet<Bicycle>("Bicycles");
+
             return builder.GetEdmModel();
         }
     }
