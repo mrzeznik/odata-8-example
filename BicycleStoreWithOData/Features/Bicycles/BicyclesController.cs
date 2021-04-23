@@ -28,7 +28,6 @@ namespace BicycleStore.Features.Bicycles
         }
 
         [EnableQuery]
-        [HttpGet]
         [Route("Bicycles")]
         public IEnumerable<Bicycle> Get()
         {
@@ -46,21 +45,5 @@ namespace BicycleStore.Features.Bicycles
             .ToArray();
         }
 
-        [EnableQuery]
-        [HttpGet("Bicycles({id})")]
-        public Bicycle GetById(int id)
-        {
-            var rng = new Random();
-            return new Bicycle
-            {
-                Id = id,
-                Weight = rng.Next(80, 160) / 10.0f,
-                Brand = Brands[rng.Next(Brands.Length)],
-                Color = Colors[rng.Next(Colors.Length)],
-                Drivetrain = "1x10",
-                ReleaseDate = DateTime.UtcNow.AddMonths(-id),
-                Available = true
-            };
-        }
     }
 }
