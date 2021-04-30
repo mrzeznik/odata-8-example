@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.OData;
-using Microsoft.OData;
 
 using BicycleStore.Repositories;
 
@@ -28,15 +26,12 @@ namespace BicycleStore
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "OData 8.x Sample");
-                });
-            }
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "OData 8.x Sample");
+            });
 
             app.UseRouting();
 

@@ -5,7 +5,7 @@ using BicycleStore.Repositories.Models;
 
 namespace BicycleStore
 {
-    internal class EdmModelBuilder
+    internal static class EdmModelBuilder
     {
         internal static IEdmModel GetEdmModel()
         {
